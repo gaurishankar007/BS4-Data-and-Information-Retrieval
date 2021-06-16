@@ -1,0 +1,18 @@
+1. MySQL
+https://dev.mysql.com/downloads/installer/
+
+2. JDK 1.8
+https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html
+
+3. MongoDB
+https://www.mongodb.com/try/download/community
+
+3.1 Robo3T
+https://robomongo.org/download 
+
+Note: 
+DO NOT download Studio 3T , download Robo3t Only
+
+4. Neo4j
+https://neo4j.com/download/
+

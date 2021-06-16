@@ -1,0 +1,3 @@
+CREATE(T:Teacher{FirstName:"Pratik", Age:100})
+CREATE(M:Module{Code:"303CEN", Name:"Agile"})
+CREATE(T)- [:Teaches]- > (M)

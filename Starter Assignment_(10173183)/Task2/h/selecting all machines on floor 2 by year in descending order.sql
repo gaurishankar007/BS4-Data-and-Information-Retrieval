@@ -1,0 +1,1 @@
+select * from arcade_machine_information where Floor=2 order by Year DESC;

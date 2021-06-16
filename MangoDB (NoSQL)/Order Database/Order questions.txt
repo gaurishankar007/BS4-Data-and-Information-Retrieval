@@ -1,0 +1,13 @@
+1. Find all the details in order collection
+2. Find the details of Order no 7823
+3. Find the details of Order no 7823 and Date 16/7
+4. Find the details of Order no 7823 or Date 17/7
+5. Update customer name from Daisy’s Cafe to Kiran’s Cafe
+6. Find all the orders which contains “Bakewell Trat” item
+7. update itemName" : "Bakewell Trat" to "Bakewell Trats and date to 17/7 from order number 7823
+8. Update itemName" : "Apple Pie" to “Black Forest” from order number 7823
+9. Delete the order no 4633
+10. Display all the orders in ascending order
+11. Count the number of order
+12. Find all the order which has Danish Pastry
+13. Delete itemName :”Bakewell Trat” from Order No: 7823

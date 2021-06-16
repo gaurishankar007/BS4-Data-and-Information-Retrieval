@@ -1,0 +1,1 @@
+select * from sessions_staff_rota where Session=1 and Role="Counter";

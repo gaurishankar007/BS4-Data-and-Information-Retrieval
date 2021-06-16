@@ -1,0 +1,5 @@
+CREATE(:Teacher{fname:"Kiran",age:32})
+CREATE(:Teacher{fname:"Niman",age:60})
+
+CREATE(:Module{code:"220CT",name:"Data and Information"})
+CREATE(:Module{code:"203CDE",name:"Usability"})
