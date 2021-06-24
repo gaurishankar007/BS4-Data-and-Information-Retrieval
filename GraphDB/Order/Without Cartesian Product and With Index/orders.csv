@@ -1,0 +1,11 @@
+order no,account no,customer name,address,item name,qty,price,total cost
+7823,178,Daisy's Cafe,"27 Bayrive,Cove",Bakewell Trat,20,0.15,12.35
+7823,178,Daisy's Cafe,"27 Bayrive,Cove",Danish Pastry,13,0.15,12.35
+7823,178,Daisy's Cafe,"27 Bayrive,Cove",Apple Pie,45,0.2,12.35
+4633,526,Smiths,"12 Dee View,Aberdeen",Butteries,120,0.2,24
+2276,167,Sally's snacks,"3 High streets, Banchory",Apple Pie,130,0.2,56.5
+2276,167,Sally's snacks,"3 High streets, Banchory",Cherry Pie,100,0.18,56.5
+2276,167,Sally's snacks,"3 High streets, Banchory",Steak Pie,30,0.5,56.5
+2276,167,Sally's snacks,"3 High streets, Banchory",Meringue Pie,20,0.2,56.5
+1788,32,Tasty Bite,"17 wood place, Insch",Apple Pie,15,0.2,7.5
+1788,32,Tasty Bite,"17 wood place, Insch",Danish Pastry,50,0.15,7.5

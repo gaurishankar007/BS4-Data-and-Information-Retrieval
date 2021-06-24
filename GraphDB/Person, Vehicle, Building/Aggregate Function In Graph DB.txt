@@ -1,0 +1,53 @@
+1.Count the number of nodes in your databases
+Match(n)
+return Count(n) as Number_of_Nodes
+
+
+2.Show the sum, max, min of birthyear
+Match(p:Person)
+Return Sum(p.Birth_Year), Max(p.Birth_Year), Min(p.Birth_Year)
+
+
+3.Show the number of car owned by each person
+Match(p:Person)-[Owns]->(v:Vehicle)
+Return p.Name, Count(v) as Number_of_Car
+
+
+4.Show the number of car owned by Kiran Rana
+Match(p:Person)-[Owns]->(v:Vehicle)
+where p.Name="Kiran Rana"
+Return p.Name, Count(v) as Number_of_Car
+
+
+5.Display oldest person's name
+Match(p:Person)
+with min(p.Birth_Year) as Minimum_Age
+Match(p:Person)
+Where p.Birth_Year=Minimum_Age
+Return p
+
+
+6.Display youngest person's name
+Match(p:Person)
+with max(p.Birth_Year) as Yougest
+Match(p:Person)
+Where p.Birth_Year=Yougest
+Return p
+
+
+7.Show the number of cars owned by oldest person
+Match(p:Person)
+with min(p.Birth_Year) as old
+
+Match(p:Person)-[:Owns]->(v:Vehicle)
+Where p.Birth_Year=old
+Return p.Name,  Count(v) as  `No. of vehicle`
+
+
+8.Show the perosn who has number of car greater than 1
+Match(p:Person)-[:Owns]->(v:Vehicle)
+with p, Count(v) as No_of_Car
+Match(p)-[:Owns]->(v)
+Where No_of_Car>1
+Return p.Name,  Count(v) as  `No. of vehicle`
+

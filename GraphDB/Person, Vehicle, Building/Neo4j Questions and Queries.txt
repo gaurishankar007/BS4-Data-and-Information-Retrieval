@@ -1,0 +1,158 @@
+1. Get all Nodes and relationships
+Match(n)
+Return(n)
+
+
+2. Display all the Vehicles with their name
+Match(v:Vehicle)
+Return v.Car
+
+
+3. Display all the Person 
+Match(p:Person)
+Return p
+
+Match(p:Person{Name:"Kiran Rana"})
+Return p
+
+
+4. Display all the vehicle owned by “Kiran Rana”
+Match(p:Person)-[Owns]->(v:Vehicle)
+Where p.Name="Kiran Rana"
+Return p, v
+
+
+5. Display which Person owns which Vehicle
+Match(p:Person)-[Owns]->(v:Vehicle)
+Return p, v
+
+
+6. Display persons whose birth_year >= 1975
+Match(p:Person)
+Where p.Birth_Year>=1975
+Return p
+
+
+7. Display the person named kiran and its related nodes
+Match(p:Person)-[Owns]->(v:Vehicle)
+Match(p:Person)-[Is_The_Owner_Of]->(b:Building)
+Where p.Name="Kiran Rana"
+Return p,b,v
+
+Match(p:Person)-[Owns]->(v:Vehicle)-[Parked_At]->(b:Building)
+Where p.Name="Kiran Rana"
+Return p,b,v
+
+
+
+8.Display all the vehicles owned by "Achyut" and "Kiran"
+Match(p:Person)-[Owns]->(v:Vehicle)
+Where p.Name="Kiran Rana" or  p.Name="Achyut Timinsina"
+Return p, v
+
+
+9. Diplay all persons in Ascending order
+Match(p:Person)
+Return p
+Order By p.Name ASC
+
+
+10. Diplay all persons in Ddesc order
+Match(p:Person)
+Return p
+Order By p.Name DESC
+
+
+11. Create a relationship between kiran and Maruti Swift
+Match(p:Person), (v:Vehicle)
+Where p.Name="Kiran Rana" and v.Car="Maruti Swift"
+Create(p)-[:Owns]->(v)
+
+{Deleting relationship}
+Match(p:Person)-[o:Owns]->(v:Vehicle)
+Where p.Name="Kiran Rana" and v.Car="Maruti Swift"
+Delete o
+
+
+12. Delete all the relationsips associated with Lamborghini
+Match(p:Person)-[o:Owns]->(v:Vehicle)-[l:Parked_At]->(b:Building)
+Where v.Car="Lamborghini"
+Delete o, l
+
+
+13. Delete Bugatti node with its relationship
+Match(v:Vehicle)
+Where v.Car="Bugatti"
+Detach Delete v
+
+
+14. Update “Sudeep Lal Bajimaya” to “Sudeep Lali”
+Match(p:Person)
+Where p.Name="Sudeep Lal Bajimaya"
+Set p.Name="Sudeep Lal"
+Return p.Name
+
+
+15. Update “Sudeep Lali” to “Sudeep Lal Bajimaya” and birth_year to 1990
+Match(p:Person)
+Where p.Name="Sudeep Lal"
+Set p.Name="Sudeep Lal Bajimaya", p.Birth_Year=1990
+Return p.name
+
+
+16. Add address property to Kiran Rana
+Match(p:Person)
+Where p.Name="Kiran Rana"
+Set p.Address="Dillibazar"
+Return p
+
+
+17. Remove address property from kiran
+Match(p:Person)
+Where p.Name="Kiran Rana"
+Set p.Address= null
+Return p
+
+
+18. Add phone and gender property to Kiran Rana
+Match(p:Person)
+Where p.Name="Kiran Rana"
+Set p.Phone=9816346714, p.Gender="Male"
+Return p
+
+
+19. Remove phone and gender property from Kiran Rana
+Match(p:Person)
+Where p.Name="Kiran Rana"
+Set p.Phone=null, p.Gender=null
+Return p
+
+
+20. Add college property named "Softwarica college" to all person
+Match(p:Person)
+Set p.College="Softwarica College"
+Return p
+
+
+21. Change the relationship "IS_THE_OWNER_OF" to "OWNER_OF"
+Match(p:Person)-[o:Is_The_Owner_Of]->(b:Building)
+Delete o
+Create(p)-[:Owner_Of]->(b)
+
+
+22. Change the relationship  "OWNER_OF" to "Owners" between kiran's building
+Match(p:Person)-[o:Owner_Of]->(b:Building)
+Where p.Name="Kiran Rana"
+Delete o
+Create(p)-[:Owners]->(b)
+Return p, b
+
+
+23. Delete all the relationship named [:OWNER_OF]
+Match(p:Person)-[o:Owner_Of]->(b:Building)
+Delete o
+
+
+24. Delete all the Datas
+Match(n)
+Detach Delete n

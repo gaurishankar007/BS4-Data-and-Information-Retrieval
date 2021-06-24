@@ -1,0 +1,15 @@
+1. If there is no duplicate data
+LOAD CSV WITH HEADERS FROM "file:///student_batch.csv" As MeroData 
+Create(:Student{stdId:MeroData.stdId, fname:MeroData.fname})-[:EnrolledTo]->(:Batch{batchName:MeroData.batch})
+
+2. TO reduce duplicate data
+LOAD CSV WITH HEADERS FROM "file:///student_batch.csv" As MeroData 
+Create(s:Student{stdId:MeroData.stdId, fname:MeroData.fname})
+Merge(b:Batch{batchName:MeroData.batch})
+Create(s)-[:EnrolledTo]->(b)
+
+3.Creating Relationship
+Load CSV With Headers From "file:///student_batch.csv" as MeroData
+Match(s:Student), (b:Batch)
+Where s.stdId=MeroData.stdId and s.fname=MeroData.fname and b.batchName=MeroData.batch
+Create(s)-[:EnrolledTo]->(b)

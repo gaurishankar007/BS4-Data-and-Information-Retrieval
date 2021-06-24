@@ -1,0 +1,36 @@
+Create(c1:Customers{Name:"Daisy's Cafe", Address:"27 Bay Drive, Cove"})
+Create(c2:Customers{Name:"Smiths", Address:"12 Dee View, Aberdeen"})
+Create(c3:Customers{Name:"Sally's Snacks", Address:"3 High Street, Banchory"})
+Create(c4:Customers{Name:"Tasty Bite", Address:"17 WoodPlace, Insch"})
+
+
+Create(o1:Orders{No:7823, Acc_No:178, Date:"16/7", Total_Cost:12.35})
+Create(o2:Orders{No:4633, Acc_No:526, Date:"16/7", Total_Cost:24.00})
+Create(o3:Orders{No:2276, Acc_No:167, Date:"17/7", Total_Cost:56.50})
+Create(o4:Orders{No:1788, Acc_No:032, Date:"18/7", Total_Cost:7.50})
+
+
+Create(i1:Items{Name:"Bakewell Tart", Price:0.15})
+Create(i2:Items{Name:"Danish Pastry", Price:0.20})
+Create(i3:Items{Name:"Apple Pie", Price:0.15})
+Create(i4:Items{Name:"Butteries", Price:0.20})
+Create(i5:Items{Name:"Cherry Pie", Price:0.18})
+Create(i6:Items{Name:"Steak Pie", Price:0.50})
+Create(i7:Items{Name:"Maringue Pie", Price:0.20})
+
+
+Create(c1)-[:Ordered]->(o1)
+Create(c2)-[:Ordered]->(o2)
+Create(c3)-[:Ordered]->(o3)
+Create(c4)-[:Ordered]->(o4)
+
+Create(o1)-[:has{Qty:20}]->(i1)
+Create(o1)-[:has{Qty:13}]->(i2)
+Create(o1)-[:has{Qty:45}]->(i3)
+Create(o2)-[:has{Qty:120}]->(i4)
+Create(o3)-[:has{Qty:130}]->(i3)
+Create(o3)-[:has{Qty:100}]->(i5)
+Create(o3)-[:has{Qty:30}]->(i6)
+Create(o3)-[:has{Qty:20}]->(i7)
+Create(o4)-[:has{Qty:15}]->(i3)
+Create(o4)-[:has{Qty:50}]->(i2)

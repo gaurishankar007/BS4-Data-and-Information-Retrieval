@@ -1,0 +1,29 @@
+Step-1
+Load CSV With Headers From "file:///orders.csv" as Ord
+Merge(:Customers{Name:Ord.`customer name`, Address:Ord.address})
+Merge(:Orders{Order_No:Ord.`order no`, Account_No:Ord.`account no`, Total_Cost:Ord.`total cost`})
+
+Step-2
+Load CSV With Headers From "file:///orders.csv" as Ord
+Merge(:Items{Name:Ord.`item name`, Price:Ord.price})
+
+Step-3
+Create Index OrdersNo for (o:Orders) on (o.Order_No)
+Create Index Item_Name for (i:Items) on (i.Name)
+Create Index Customer_Name for (c:Customers) on (c.Name)
+
+Step-4
+Match(c:Customers)
+With c
+Load CSV With Headers From "file:///orders.csv" as Ord
+Match(o:Orders)
+Where c.Name=Ord.`customer name` and o.Order_No=Ord.`order no`
+Merge(c)-[:Ordered]->(o) 
+
+Step-5
+Match(o:Orders)
+With o
+Load CSV With Headers From "file:///orders.csv" as Ord
+Match(i:Items)
+Where o.Order_No=Ord.`order no` and i.Name=Ord.`item name`
+create(o)-[:has{Quantity:Ord.qty}]->(i) 

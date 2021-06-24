@@ -1,0 +1,81 @@
+1. Find all the order details.
+Match(n)
+Return n
+
+
+2. Find the details of Order no 7823.
+Match(o:Orders)<-[Ordered]-(c:Customers)
+Match(o:Orders)-[:has]->(i:Items)
+Where o.No=7823
+Return o, c, i
+
+
+3. Find the details of Order no 7823 and Date 16/7
+Match(o:Orders)<-[Ordered]-(c:Customers)
+Match(o:Orders)-[:has]->(i:Items)
+Where o.No=7823 and o.Date="16/7"
+Return o, c, i
+
+
+4. Find the details of Order no 7823 or Date 17/7
+Match(o:Orders)<-[Ordered]-(c:Customers)
+Match(o:Orders)-[:has]->(i:Items)
+Where o.No=7823 or o.Date="17/7"
+Return o, c, i
+
+
+5. Update customer name from Daisy’s Cafe to Kiran’s Café.
+Match(c:Customers)
+Where c.Name="Daisy's Cafe"
+Set c.Name="Kiran's Cafe"
+Return c
+
+
+6. Find the all the orders which has “Apple Pie”.
+Match(o:Orders)-[:has]->(i:Items)
+Where i.Name="Apple Pie"
+Return o, i
+
+
+7. Update Bakewell Trat to "Bakewell Trats” and date to 17/7
+Match(i:Items)<-[has]-(o:Orders)
+Where i.Name="Bakewell Tart"
+Set i.Name="Bakewell Tarts", o.Date='7/17'
+Return i, o
+
+
+8. Update “Apple Pie" to “Black Forest”.
+Match(i:Items)<-[has]-(o:Orders)
+Where i.Name="Apple Pie"
+Set i.Name="Black Forest"
+Return i, o
+
+
+9. Delete the order no 4633.
+Match(o:Orders)
+Where o.No=4633
+Detach Delete o
+
+
+10. Display all the orders in ascending order.
+Match(o:Orders)
+Return o
+Order By o.No Asc
+
+
+11. Count the number of orders.
+Match(o:Orders)
+Return Count(o) As `Total Orders`
+
+
+12. Delete Danish Pastry from Order no 7823.
+Match(o:Orders)-[h:has]->(i:Items)
+where o.No=7823 and i.Name="Danish Pastry"
+Delete h
+
+
+13. Find which Order has the maximum ordered qty
+Match(o:Orders)-[h:has]->(i:Items)
+With o, Sum(h.Qty) As TOQ
+Match(o:Orders)-[h:has]->(i:Items)
+Return Max(TOQ) As MO
