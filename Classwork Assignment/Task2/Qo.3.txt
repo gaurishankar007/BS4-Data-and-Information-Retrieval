@@ -1,0 +1,4 @@
+Match(h:HomeTeam)
+With h
+Match (a:AwayTeam)
+Return h, a

@@ -1,6 +1,0 @@
-Load CSV With Headers From "file:///Student.csv" as Data
-Merge(s:Student{CoventryId:Data.coventryId, FName:Data.fname, LName:Data.lname, Age:Data.age})
-Merge(b:Batch{Name:Data.batch})
-Merge(m:Module{Name:Data.`Module name`})
-Merge(s)-[:EnrolledTo]->(b)
-Create(s)-[:HasTaken]->(m)

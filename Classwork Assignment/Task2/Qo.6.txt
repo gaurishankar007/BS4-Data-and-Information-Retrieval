@@ -1,0 +1,3 @@
+Match(g:Game)-[:AwayTeamActions]->(a:AwayTeam)
+Where g.FullTimeResult="A" and a.Name="Arsenal"
+Return count(g) As `Matches Wonned by Arsenal As Away Team`

@@ -1,0 +1,36 @@
+Step-2.1.1
+Load CSV With Headers From "file:///Task_2_PremierLeauge_2019.csv" as Data
+Create(:Game{GameName:Data.HomeTeam+" vs "+Data.AwayTeam, LeagueDivision:Data.Div, Date:Data.Date, Time:Data.Time, HalfTimeResult:Data.HTR, FullTimeResult:Data.FTR})
+Merge(:Referee{Name:Data.Referee})
+
+Step-2.1.2
+Load CSV With Headers From "file:///Task_2_PremierLeauge_2019.csv" as Data
+Merge(:HomeTeam{Name:Data.HomeTeam})
+
+Step-2.1.3
+Load CSV With Headers From "file:///Task_2_PremierLeauge_2019.csv" as Data
+Merge(:AwayTeam{Name:Data.AwayTeam})
+
+Step-2.2.1
+Match(g:Game)
+With g
+Load CSV With Headers From "file:///Task_2_PremierLeauge_2019.csv" as Data
+Match(r:Referee)
+Where g.GameName=Data.HomeTeam +" vs "+Data.AwayTeam and r.Name=Data.Referee
+Create(g)-[:RanBy]->(r)
+
+Step-2.2.2
+Match(g:Game)
+With g
+Load CSV With Headers From "file:///Task_2_PremierLeauge_2019.csv" as Data
+Match(h:HomeTeam)
+Where g.GameName=Data.HomeTeam +" vs "+Data.AwayTeam and h.Name=Data.HomeTeam
+Create(g)-[:AwayTeamActions{HalfTimeGoals:Data.HTHG, FullTimeGoals:Data.FTHG, Shots:Data.HS, ShotsOnTarget:Data.HST, Fouls:Data.HF, Corners:Data.HC, YellowCards:Data.HY, RedCards:Data.HR}]->(h)
+
+Step-2.2.3
+Match(g:Game)
+With g
+Load CSV With Headers From "file:///Task_2_PremierLeauge_2019.csv" as Data
+Match(a:AwayTeam)
+Where g.GameName=Data.HomeTeam +" vs "+Data.AwayTeam and a.Name=Data.AwayTeam
+Create(g)-[:AwayTeamActions{HalfTimeGoals:Data.HTAG, FullTimeGoals:Data.FTAG, Shots:Data.`AS`, ShotsOnTarget:Data.AST, Fouls:Data.AF, Corners:Data.AC, YellowCards:Data.AY, RedCards:Data.AR}]->(a)

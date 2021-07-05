@@ -150,7 +150,7 @@ db.Customer_Order.update(
 
 
 
-//8 Upadate all Apple Pie to Apple pie
+//8 Upadate all Apple Pie to Apple pies
 
 db.Customer_Order.updateMany(
 

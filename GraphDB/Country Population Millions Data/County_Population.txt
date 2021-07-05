@@ -1,0 +1,9 @@
+//Load Data
+Load CSV With Headers From "file:///County_Population.csv" as Data
+Return Data
+
+// Create Data
+Load CSV With Headers From "file:///County_Population.csv" as Data
+Merge(:Country{CountryCode:Data.`County Code`, CountryName:Data.`County Name`})
+Merge(:YearWiseRace{Name:Data.Year+"_"+Data.`Race Code`, Year:Data.Year, RaceCode:Data.`Race Code`, RaceName:Data.`Race Name`})
+Create(:People{Gender:Data.Gender, Age:Data.Age, Population:Data.Population})

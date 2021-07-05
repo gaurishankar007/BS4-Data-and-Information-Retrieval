@@ -1,1 +1,0 @@
-LOAD CSV WITH HEADERS FROM "file:///student_batch.csv" As MeroData Return MeroData

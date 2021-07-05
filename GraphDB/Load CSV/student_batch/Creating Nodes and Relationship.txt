@@ -1,0 +1,27 @@
+1. If there is no duplicate data
+LOAD CSV WITH HEADERS FROM "file:///student_batch.csv" As MeroData 
+Create(:Student{stdId:MeroData.stdId, fname:MeroData.fname})-[:EnrolledTo]->(:Batch{batchName:MeroData.batch})
+
+2. TO reduce duplicate data
+LOAD CSV WITH HEADERS FROM "file:///student_batch.csv" As MeroData 
+Create(s:Student{stdId:MeroData.stdId, fname:MeroData.fname})
+Merge(b:Batch{batchName:MeroData.batch})
+Create(s)-[:EnrolledTo]->(b)
+
+3.Creating Relationship (This builds Cartesian Product)
+Load CSV With Headers From "file:///student_batch.csv" as MeroData
+Match(s:Student), (b:Batch)
+Where s.stdId=MeroData.stdId and s.fname=MeroData.fname and b.batchName=MeroData.batch
+Create(s)-[:EnrolledTo]->(b)
+
+4. Creating Relationship without building Cartesian Product (Use this)
+Match(b:Batch)
+WITH b
+LOAD CSV WITH HEADERS FROM "file:///student_batch.csv" as MeroData
+MATCH(s:Student)
+WHERE s.stdId=MeroData.stdId and b.batchName=MeroData.batch
+CREATE(s)-[:Enrolled_to]->(b)
+
+5. Creating Index (Do before making relationship:- Useful for processing millions of data)
+Create Index BatchIndex for (b:Batch) on (b.batchName)
+Create Index StudentIndex for (s:Stuedent) on (s.fname)

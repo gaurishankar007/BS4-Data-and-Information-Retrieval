@@ -1,0 +1,7 @@
+Match(g:Game)-[:HomeTeamActions]->(h:HomeTeam)
+Where g.FullTimeResult="H" And g.HalfTimeResult="A"  And h.Name="Liverpool"
+Return g
+Union All
+Match(g:Game)-[:AwayTeamActions]->(a:AwayTeam)
+Where g.FullTimeResult="A" And g.HalfTimeResult="H"  And a.Name="Liverpool"
+Return g
