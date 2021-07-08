@@ -1,0 +1,45 @@
+(Run Window Powershell as administration)
+1. Starting Cassandra Server 
+=>cassandra.bat -f
+
+(Run in New Window Powershell)
+2. Checking Server Status 
+=>nodetool status
+
+3. Switching to Cassandra Query Language
+=>cqlsh
+
+4. Creating Database
+=>Create Keyspace batch27A With Replication = {
+	'class': 'SimpleStrategy',
+	'replication_factor':3
+	};
+
+4.1 Using Created Database
+=>use batch27A;
+ 
+5. Creating table
+=>Create Table tblStudent(
+            ... stdId uuid,
+            ... fname varchar,
+            ... lname varchar,
+            ... age int,
+            ... primary key(stdId)
+            ... );
+
+6. Crud Operations
+=>Insert into tblStudent(stdId, fname, lname, age)
+            ... Values(uuid(), 'Kiran', 'Rana', 22);
+
+=>Insert into tblStudent(stdId, fname, lname, age)
+            ... Values(uuid(), 'Gauri Shankar', 'Sharma', 19);
+
+=>Insert into tblStudent(stdId, fname, lname, age)
+            ... Values(uuid(), 'Nabin', 'Oli', 23);
+
+=>Update tblStudent
+            ... Set fname='Salman', lname='Khan', age=54
+            ... Where stdid=1866c2de-86ab-4da1-90ed-0c2755d1f8bd;
+
+=>Delete from tblStudent
+            ... Where stdid=42ec1a45-d362-4f79-91a8-0e3151d13963;
