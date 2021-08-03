@@ -8,7 +8,7 @@ db.Students.aggregate([
 
                 from: "Batch",
 
-                localField:"batchId", // Student Collection's batchID
+                localField:"batchId", // Students Collection's batchID
 
                 foreignField:"batchId", // Batch Collection's batchID
 

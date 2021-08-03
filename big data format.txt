@@ -1,0 +1,8 @@
+1. Aims and Objective
+2. Background
+3. Acquiring the data (For what purpose and from where)
+4. Description of attributes
+5. Analysis and visualization
+6. Conclusion
+7. Future work
+8. references
