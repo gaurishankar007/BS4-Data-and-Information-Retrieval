@@ -1,0 +1,9 @@
+db.Orders.update(
+    {"OrderID": "CON-2356"},
+    {$push: {"Equipment":{"Name": '3/4” Locknut', "Qty": NumberInt(2), "UnitPrice": "£1.50"}}}
+)
+    
+db.Orders.update(
+    {"OrderID": "CON-2356"},
+    {$set: {"TotalPrice": "£283.00"}}
+)

@@ -1,0 +1,5 @@
+Match(md:Match_Details)
+With md.Bats_Man as `Bats Man`, Sum(toInteger(md.Total_Runs)) as `Total Runs`
+Return `Bats Man`, `Total Runs`
+Order By `Total Runs` DESC
+Limit 10

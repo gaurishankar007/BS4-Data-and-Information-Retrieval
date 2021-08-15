@@ -1,0 +1,5 @@
+Match(p:Person)-[r:Read]-(b:Book)
+With min(r.Read_Date) as FR
+Match(p:Person)-[r:Read]-(b:Book)
+Where r.Read_Date=FR
+Return p, b

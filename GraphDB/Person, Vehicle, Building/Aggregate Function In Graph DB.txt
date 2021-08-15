@@ -19,15 +19,15 @@ where p.Name="Kiran Rana"
 Return p.Name, Count(v) as Number_of_Car
 
 
-5.Display youngest person's name
+5.Display oldest person's name
 Match(p:Person)
-with min(p.Birth_Year) as Minimum_Age
+with min(p.Birth_Year) as oldest
 Match(p:Person)
-Where p.Birth_Year=Minimum_Age
+Where p.Birth_Year=oldest
 Return p
 
 
-6.Display oldest person's name
+6.Display youngest person's name
 Match(p:Person)
 with max(p.Birth_Year) as Yougest
 Match(p:Person)

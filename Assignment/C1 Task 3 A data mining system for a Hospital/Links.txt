@@ -1,0 +1,5 @@
+https://www.ibm.com/cloud/learn/data-mining
+https://machinelearningmastery.com/save-machine-learning-model-make-predictions-weka/ {Weka}
+https://www.javatpoint.com/data-mining-in-healthcare {Application in Hospital}
+https://archer-soft.com/blog/how-does-data-mining-help-healthcare {Application in Hospital}
+ 

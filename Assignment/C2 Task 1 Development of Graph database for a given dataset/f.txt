@@ -1,0 +1,3 @@
+Match(m:Matches)
+Where m.Winner="Kings XI Punjab" and m.Toss_Winner="Mumbai Indians"
+Return count(m) as `Total no. of matches in which “Kings XI Punjab” won against “Mumbai Indians” when they lost the toss`

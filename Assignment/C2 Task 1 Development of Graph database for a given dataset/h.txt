@@ -1,0 +1,2 @@
+Match(m:Matches)-[um]->(u:Umpire)
+Return u.Name , count(um)

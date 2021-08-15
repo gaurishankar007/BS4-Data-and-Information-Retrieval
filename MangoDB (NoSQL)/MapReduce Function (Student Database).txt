@@ -1,0 +1,63 @@
+<==========Data Inserting==========>
+db.orders.insert([
+//1st Data
+{
+cust_id: "1",
+cust_name : "Kiran Rana",
+ord_date: new Date("Oct 04, 2019"),
+status: 'A',
+price: 320,
+items: [
+{ itemname: "MoMo", qty: 2, price: 100 },
+{ itemname: "Coke", qty: 3, price: 40 }
+]
+},
+//2nd Data
+{
+cust_id: "2",
+cust_name : "Anita Rana",
+ord_date: new Date("Oct 10, 2019"),
+status: 'A',
+price: 220,
+items: [
+{ itemname: "Peastry",qty: 2, price: 50 },
+{ itemname: "Coke", qty: 3, price: 40 }
+]
+},
+//3rd Data
+{
+cust_id: "1",
+cust_name : "Kiran Rana",
+ord_date: new Date("Oct 10, 2019"),
+status: 'A',
+price: 70,
+items: [
+{ itemname: "Peastry", qty: 1, price: 50 },
+{ itemname: "Tea", qty: 1, price: 20 }
+]
+}
+
+])
+
+
+<==========Function==========>
+// Total Price per Customer
+
+// Map Function
+var mapFunction = function() {
+    emit(this.cust_name, this.price);
+}
+
+// Reduce Function
+var reduceFunction = function(custName, price) {
+    return Array.sum(price);
+}
+
+// Mapreduce Function
+db.orders.mapReduce(
+    mapFunction,
+    reduceFunction,
+    {
+        out: "Total_price_per_Customer"
+    }
+).find();

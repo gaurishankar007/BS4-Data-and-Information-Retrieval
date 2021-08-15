@@ -1,0 +1,3 @@
+Match(p:Person)-[r:Read]->(b:Book)
+Where p.Name="Sally" and b.Name="Moby Dick"
+Delete r

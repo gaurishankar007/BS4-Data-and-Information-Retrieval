@@ -1,0 +1,9 @@
+db.Orders.aggregate([
+    {$project: {
+        "ClientName":1,
+        "ClientAddress":1,
+        Total_Equipment_Quantity: {$sum: "$Equipment.Qty"}
+        }
+    },
+    {$match: {Total_Equipment_Quantity: {$gt: 6}}}
+])
