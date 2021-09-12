@@ -1,0 +1,7 @@
+Create(p1:Person{Name:"John", DOB:date({year:1990, month:12, day:6})})
+Create(p2:Person{Name:"Sally", DOB:date({year:1991, month:4, day:12})})
+Create(b1:Book{Name:"Moby Dick", Written_By:"Herman Melville"})
+
+Create(p1)-[:Is_Friend_Of{Friendship_Date:date({year:2016, month:1, day:12})}]->(p2)
+Create(p1)-[:Read{Read_Date:date({year:2021, month:3, day:2}), Rating:5}]->(b1)
+Create(p2)-[:Read{Read_Date:date({year:2021, month:2, day:2}), Rating:4}]->(b1)

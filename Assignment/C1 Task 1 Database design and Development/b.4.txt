@@ -1,6 +1,0 @@
-db.Orders.find({
-    $and: [
-        {"Date": {$gt: ISODate("2014-11-01")}},
-        {"Date": {$lt: ISODate("2015-03-01")}}
-    ]
-})

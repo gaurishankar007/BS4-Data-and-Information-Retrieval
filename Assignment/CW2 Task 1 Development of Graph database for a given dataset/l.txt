@@ -1,0 +1,12 @@
+Step-1
+Match(t1:Team)<-[:Team1]-(m:Matches)-[:Team2]->(t2:Team)
+Where m.Season="2008" and t1.Name<>"Mumbai Indians" and t2.Name<>"Mumbai Indians"
+With m 
+Match(md:Match_Details)
+Where md.ID=m.ID
+Detach Delete md
+
+Step-2
+Match(t1:Team)<-[:Team1]-(m:Matches)-[:Team2]->(t2:Team)
+Where m.Season="2008" and t1.Name<>"Mumbai Indians" and t2.Name<>"Mumbai Indians"
+Detach Delete m

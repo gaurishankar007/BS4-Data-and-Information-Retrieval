@@ -1,3 +1,0 @@
-Match(p:Person)
-Where p.Name="Sally"
-Set p.Name="Salena"

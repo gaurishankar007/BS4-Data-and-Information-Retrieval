@@ -1,0 +1,9 @@
+Step-1
+Match(md:Match_Details)
+Where md.Bats_Man="CH Gayle" or md.Non_Striker="CH Gayle" or md.Bowler="CH Gayle" or md.Player_Dismissed="CH Gayle" 
+Detach Delete md
+
+Step-2
+Match(m:Matches)
+Where m.Player_Of_Match="CH Gayle" 
+Detach Delete m

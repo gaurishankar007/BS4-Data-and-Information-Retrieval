@@ -1,12 +1,17 @@
-MATCH(T:Teacher), (M:Module)
-WHERE T.FirstName="Kiran" and
-M.Code="220CT"
+MATCH(T:Teacher)
+With T
+MATCH(M:Module)
+WHERE T.fname="Kiran" and M.code="220CT"
 CREATE(T)-[:Teaches]- >(M)
 
-MATCH(T:Teacher), (M:Module)
-WHERE T.FirstName="Niman" and M.Code="203CDE"
+MATCH(T:Teacher)
+With T
+MATCH(M:Module)
+WHERE T.fname="Niman" and M.code="203CDE"
 CREATE(T)-[:Teaches]- >(M)
 
-MATCH(T:Teacher), (M:Module)
-WHERE T.FirstName="Kiran" and M.Code="203CDE"
+MATCH(T:Teacher)
+With T
+MATCH(M:Module)
+WHERE T.fname="Kiran" and M.code="203CDE"
 CREATE(T)-[:Teaches]- >(M)

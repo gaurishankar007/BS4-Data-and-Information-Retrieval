@@ -1,8 +1,0 @@
-db.Orders.aggregate([
-   {$match: {"ClientName": "Coventry Building Services Ltd"}},
-   {$project: {
-       "ClientName":1,
-       "Equipment": 1
-       }
-   }
-])

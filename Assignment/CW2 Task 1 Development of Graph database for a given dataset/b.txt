@@ -1,0 +1,82 @@
+<==========Creating Nodes==========>
+Step-1
+Load CSV With Headers From "file:///ipl_matches_2008_to_2019.csv" as M
+Create(:Matches{ID:M.id, Season:M.season, City:M.city, Toss_Winner:M.toss_winner, Toss_Decision:M.toss_decision, DL_Applied:M.dl_applied, Winner:M.winner, Win_By_Runs:M.win_by_runs, Win_By_Wickets:M.win_by_wickets, Player_Of_Match:M.player_of_match, Venue:M.venue})
+
+Step-2
+Load CSV With Headers From "file:///ipl_matches_2008_to_2019.csv" as M
+Merge(:Team{Name:M.team1})
+
+Step-3
+Load CSV With Headers From "file:///ipl_matches_2008_to_2019.csv" as M
+Merge(:Team{Name:M.team2})
+
+Step-4
+Load CSV With Headers From "file:///ipl_matches_2008_to_2019.csv" as M
+With M
+Where M.umpire1 is not null
+Merge(:Umpire{Name:M.umpire1})
+
+Step-5
+Load CSV With Headers From "file:///ipl_matches_2008_to_2019.csv" as M
+With M
+Where M.umpire2 is not null
+Merge(:Umpire{Name:M.umpire2})
+
+Step-6
+Load CSV With Headers From "file:///ipl_matches_2008_to_2019.csv" as M
+With M
+Where M.umpire3 is not null
+Merge(:Umpire{Name:M.umpire3})
+
+Step-7 
+Load CSV With Headers From "file:///match_details.csv" as MD
+Create(:Match_Details{ID:MD.match_id, Inning:MD.inning, Batting_Team:MD.batting_team, Bowling_Team:MD.bowling_team, Over:MD.over, Ball:MD.ball, Bats_Man:MD.batsman, Non_Striker:MD.non_striker, Bowler:MD.bowler, Is_Super_Over:MD.is_super_over, Wide_Runs:MD.wide_runs, Bye_Runs:MD.bye_runs, Leg_Bye_Runs:MD.legbye_runs, No_Ball_Runs:MD.noball_runs, Penalty_Runs:MD.penalty_runs, Bats_Man_Runs:MD.batsman_runs, Extra_Runs:MD.extra_runs, Total_Runs:MD.total_runs, Player_Dismissed:MD.player_dismissed, Dismissal_Kind:MD.dismissal_kind, Fielder:MD.fielder})
+
+<==========Creating Relationships==========>
+Step-8
+Match(m:Matches)
+With m
+Load CSV With Headers From "file:///ipl_matches_2008_to_2019.csv" as M
+Match(t:Team)
+Where m.ID=M.id and t.Name=M.team1
+Create(m)-[:Team1]->(t)
+
+Step-9
+Match(m:Matches)
+With m
+Load CSV With Headers From "file:///ipl_matches_2008_to_2019.csv" as M
+Match(t:Team)
+Where m.ID=M.id and t.Name=M.team2
+Create(m)-[:Team2]->(t)
+
+Step-10
+Match(m:Matches)
+With m
+Load CSV With Headers From "file:///ipl_matches_2008_to_2019.csv" as M
+Match(u:Umpire)
+Where m.ID=M.id and u.Name=M.umpire1
+Create(m)-[:Umpire1]->(u)
+
+Step-11
+Match(m:Matches)
+With m
+Load CSV With Headers From "file:///ipl_matches_2008_to_2019.csv" as M
+Match(u:Umpire)
+Where m.ID=M.id and u.Name=M.umpire2
+Create(m)-[:Umpire2]->(u)
+
+Step-12
+Match(m:Matches)
+With m
+Load CSV With Headers From "file:///ipl_matches_2008_to_2019.csv" as M
+Match(u:Umpire)
+Where m.ID=M.id and u.Name=M.umpire3
+Create(m)-[:Umpire3]->(u)
+
+Step-13
+Match(m:Matches)
+With m
+Match(md:Match_Details)
+Where md.ID=m.ID
+Create(m)-[:Activities]->(md)

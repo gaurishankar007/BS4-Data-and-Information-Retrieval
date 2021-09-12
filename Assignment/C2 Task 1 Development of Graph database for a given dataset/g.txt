@@ -1,3 +1,0 @@
-Match(m:Matches)
-Where m.Toss_Winner="Chennai Super Kings" and m.Toss_Decision="bat" and m.Winner="Chennai Super Kings"
-Return m

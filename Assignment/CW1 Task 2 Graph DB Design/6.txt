@@ -1,0 +1,14 @@
+Match(p:Person)-[f:Is_Friend_Of]->(p)
+Delete f 
+
+Match(p:Person)-[r:Read]->(b:Book)
+Delete r
+
+Match(p:Person)
+Where p.Name<>"John"
+Delete p
+
+Match(b:Book)
+Delete b
+
+

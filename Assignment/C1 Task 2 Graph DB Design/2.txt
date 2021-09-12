@@ -1,3 +1,0 @@
-Match(p:Person)
-Where p.Name="Sally"
-Return date().year-p.DOB.year as `Sally's Age`

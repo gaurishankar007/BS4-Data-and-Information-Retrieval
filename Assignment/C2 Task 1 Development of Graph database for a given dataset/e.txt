@@ -1,3 +1,0 @@
-Match(m:Matches)
-Where m.Winner="Chennai Super Kings" and  m.Player_Of_Match="MS Dhoni"
-Return count(m) as `Total no. of maches in which MS Dhoni got player of match when their teams won`

@@ -1,0 +1,41 @@
+1.
+Match(b:Buyer)-[:Ordered]->(o:Order)-[:Ordered_Product]->(p:Product)<-[:Sells]-(s:Seller)
+Where b.Name="Shankar Tamang"
+Return b, o, p, s
+
+2.
+Match(o:Order)-[:Ordered_Product]->(p:Product)<-[:Sells]-(s:Seller)
+Return s.Name as `Seller Name`, s.Business_Name as `Seller business`, Count(o) as `Total Orders in the business`
+
+3.
+Match(p:Product)-[:Recommended]->(b:Buyer)
+Return b, p
+
+4.
+Match(b:Buyer)-[w:Wish_List]->(p:Product)
+Return b, p
+
+5.
+Match(b:Buyer)-[:Ordered]->(o:Order)
+With b, Count(o) as TO
+With Max(TO) as MTO
+Match(b:Buyer)-[:Ordered]->(o:Order)
+With MTO, b, Count(o) as TO
+Where TO=MTO
+Return b.Name as `Buyer Name`, MTO as `Total number of orders`
+
+6.
+Match(s:Seller)-[:Sells]->(p:Product)
+Where p.Quality_Rating=5
+Return p.Name as `Product Name`, p.Quality_Rating as `Quality Rating`, s.Business_Name as Seller
+
+7.
+Match(s:Seller)
+With Count(s) as TS
+Match(b:Buyer)
+Return TS as `Total Seller`, Count(b) as `Total Buyer`
+
+8.
+Match(b:Buyer)-[:Ordered]->(o:Order)-[:Pay]-(p:Payment)
+Where b.Name = "Samir Thapaliya"
+Return Distinct p.Payment_Method as `Payment Methods Used by Samir Thapaliya`

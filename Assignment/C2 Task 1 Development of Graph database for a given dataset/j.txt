@@ -1,9 +1,0 @@
-Match(m:Matches)-[tm]->(t:Team)
-Where m.Winner=t.Name and  m.Venue="Wankhede Stadium" and m.Toss_Winner=t.Name and m.Toss_Decision="field"and m.Season="2008"
-With t, count(m) as MW
-With Max(MW) as MMW
-Match(m:Matches)-[tm]->(t:Team)
-Where m.Winner=t.Name and  m.Venue="Wankhede Stadium" and m.Toss_Winner=t.Name and m.Toss_Decision="field"and m.Season="2008"
-With MMW, t, count(m) as MW
-Where MW=MMW
-Return t.Name as `Team Name`, MMW as `Most Match Wins`

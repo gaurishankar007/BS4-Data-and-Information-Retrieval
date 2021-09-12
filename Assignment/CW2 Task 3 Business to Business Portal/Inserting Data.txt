@@ -1,0 +1,130 @@
+//Creating users
+Create(u1:User{Username:"gauri007", Password:"Spider@4567#", Is_Seller:TRUE, Is_Buyer:FALSE, Is_Active:TRUE, Is_Superuser:FALSE})
+Create(u2:User{Username:"anup234", Password:"anU5#68", Is_Seller:TRUE, Is_Buyer:FALSE, Is_Active:TRUE, Is_Superuser:FALSE})
+Create(u3:User{Username:"samir852", Password:"samIr@#444", Is_Seller:FALSE, Is_Buyer:TRUE, Is_Active:TRUE, Is_Superuser:FALSE})
+Create(u4:User{Username:"shankar456", Password:"pEo##45", Is_Seller:FALSE, Is_Buyer:TRUE, Is_Active:TRUE, Is_Superuser:FALSE})
+
+//Creating sellers
+Create(s1:Seller{Name:"Gauri Shankar Sharma", Email:"gaurisharma358@gmail.com", Contact:9816346714, Country:"Nepal", Business_Name:"Raithaane Agri Products Nepal", Business_Description:"This is a new initiative of a multidisciplinary team of professionals having decades of experience in various sectors that promotes and preserves local crops and farmers.", Created_Date:date()})
+Create(s2:Seller{Name:"Anup Raj Rijal", Email:"anup147@gmail.com", Contact:9828874136, Country:"Nepal", Business_Name:"Auto Parts International (Pvt) Ltd", Business_Description:"Auto Parts International (API) is a leader in the after-market parts business in Nepal. We are involved in vehicle spare parts distribution.", Created_Date:date()})
+
+//Creating buyers
+Create(b1:Buyer{Name:"Samir Thapaliya", Email:"smair009@gmail.com", Contact:9876543210, Country:"Nepal", Business_Name:"Nebico Biscuit Company", Business_Description:"Nebico Private Limited is the pioneer biscuit industry of Nepal. It was established in 1964 with the objective of manufacturing quality biscuits and confectioneries in Nepal.", Created_Date:date()})
+Create(b2:Buyer{Name:"Shankar Tamang", Email:"shankar455@gmail.com", Contact:9845761238, Country:"Nepal", Business_Name:"YATRI Motorcycles", Business_Description:"Yatri Motorcycles, an electric automotive tech company, recently released two products in the Nepali market: the P-0, P-1 electric motorcycles.", Created_Date:date()})
+
+//Creating products
+Create(p1:Product{Name:"Kalyansona Wheat", Description:"Best wheat in Nepal.", Quantity:"5300 Kg", Quality_Rating:4.5, Price:"Rs. 115 per Kg", Discount_Offer:"5% above a ton", Date_Added:date()})
+Create(p2:Product{Name:"Rampur Composite Corn", Description:"Rewarded as Asian no.1 Corn.", Quantity:"4500 Kg", Quality_Rating:4, Price:"Rs. 95 per Kg", Discount_Offer:"6% above a ton", Date_Added:date()})
+Create(p3:Product{Name:"Mansuli Rice", Description:"Most delicious rice of Nepal.", Quantity:"8700 Kg", Quality_Rating:4.5, Price:"Rs. 125 per Kg", Discount_Offer:"5.5% above a ton", Date_Added:date()})
+Create(p4:Product{Name:"Red Kidney bean", Description:"Best quality of Kidney bean.", Quantity:"7200 Kg", Quality_Rating:4, Price:"Rs. 250 per Kg", Discount_Offer:"4% above a ton", Date_Added:date()})
+Create(p5:Product{Name:"Red Lentil", Description:"Healty and delicious Lentil", Quantity:"5100 Kg", Quality_Rating:4, Price:"Rs. 175 per Kg", Discount_Offer:"5% above a ton", Date_Added:date()})
+Create(p6:Product{Name:"Sugar", Description:"Most popular and healthy sugar in Nepal.", Quantity:"3010 Kg", Quality_Rating:3.5, Price:"Rs. 90 per Kg", Discount_Offer:"4.5% above a ton", Date_Added:date()})
+Create(p7:Product{Name:"CST 120/70-10 Tyre (C6017)", Description:"Best fit for Vespa from brand CST.", Quantity:"650", Quality_Rating:3.5, Price:"Rs. 3375", Discount_Offer:"7% above 10 item", Date_Added:date()})
+Create(p8:Product{Name:"SB Adonis Angry Bird (M. Black Orange)", Description:"Most Popular helmet of all time in the market of Nepal.", Quantity:"480", Quality_Rating:4.5, Price:"Rs. 3350", Discount_Offer:"10% above 10 item", Date_Added:date()})
+Create(p9:Product{Name:"Torque Sq1440-Tz9B (9 Amp)", Description:"The revolutionary Gas Recombination system eliminates water loss making the battery completely maintenance free.", Quantity:"320", Quality_Rating:4, Price:"Rs.4237", Discount_Offer:"8% above 10 item", Date_Added:date()})
+Create(p10:Product{Name:"Rizoma 28mm Motorcycle Handle Bar", Description:"Suitable for motorcycles with 28 mm size clamp.", Quantity:"525", Quality_Rating:4.5, Price:"Rs. 1400", Discount_Offer:"4.5% above 10 item", Date_Added:date()})
+Create(p11:Product{Name:"Bosch Symphony Horns", Description:"Preferred by wide range of consumers.", Quantity:"580", Quality_Rating:5, Price:"Rs. 2205", Discount_Offer:"3.5% above 10 item", Date_Added:date()})
+Create(p12:Product{Name:"Rizoma Mirror-Oval Shaped", Description:"Stylish appearance and high quality.", Quantity:"705", Quality_Rating:5, Price:"Rs. 1500", Discount_Offer:"3% above 10 item", Date_Added:date()})
+
+//Creating orders
+Create(o1:Order{Quantity:"250 kg", Discount:"5%", Final_Price:"Rs. 27312.5", Order_Status:"Delivered", Ordered_Date:datetime()})
+Create(o2:Order{Quantity:"220 kg", Discount:"6%", Final_Price:"Rs. 19646", Order_Status:"Accepted", Ordered_Date:datetime()})
+Create(o3:Order{Quantity:"300 kg", Discount:"5.5%", Final_Price:"Rs. 35437.5", Order_Status:"Delivered", Ordered_Date:datetime()})
+Create(o5:Order{Quantity:"175 kg", Discount:"5%", Final_Price:"Rs. 29093.75", Order_Status:"Requested", Ordered_Date:datetime()})
+Create(o8:Order{Quantity:"32", Discount:"10%", Final_Price:"Rs. 96480", Order_Status:"Delivered", Ordered_Date:datetime()})
+Create(o10:Order{Quantity:"73", Discount:"4.5%", Final_Price:"Rs. 97601", Order_Status:"Accepted", Ordered_Date:datetime()})
+Create(o11:Order{Quantity:"65", Discount:"3.5%", Final_Price:"Rs. 138308.625", Order_Status:"Delivered", Ordered_Date:datetime()})
+
+//Creating payments
+Create(pm1:Payment{Payment_Method:"Credit Card", Card_Number:"378282246310005", Paid_Amount:"Rs. 27312.5", Payment_Date:datetime()})
+Create(pm2:Payment{Payment_Method:"Credit Card", Card_Number:"378282246310005", Paid_Amount:"Rs. 19646", Payment_Date:datetime()})
+Create(pm3:Payment{Payment_Method:"Debit Card", Card_Number:"123456789765432", Paid_Amount:"Rs. 35437.5", Payment_Date:datetime()})
+Create(pm5:Payment{Payment_Method:"Credit Card", Card_Number:"378282246310005", Paid_Amount:"Rs. 29093.75", Payment_Date:datetime()})
+Create(pm8:Payment{Payment_Method:"Credit Card", Card_Number:"5555555555554444", Paid_Amount:"Rs. 96480", Payment_Date:datetime()})
+Create(pm10:Payment{Payment_Method:"Credit Card", Card_Number:"5555555555554444", Paid_Amount:"Rs. 97601", Payment_Date:datetime()})
+Create(pm11:Payment{Payment_Method:"Credit Card", Card_Number:"5555555555554444", Paid_Amount:"Rs. 138308.625", Payment_Date:datetime()})
+
+//Creating addresses for delivery
+Create(a1:Address{Street:"Haraincha", City:"Morang", State:"Province 1", Zip_Code:56611, Phone:9834852123})
+Create(a2:Address{Street:"Kerabari", City:"Morang", State:"Province 1", Zip_Code:56610, Phone:9875302123})
+Create(a3:Address{Street:"Jhorahat", City:"Morang", State:"Province 1", Zip_Code:56615, Phone:981598723})
+Create(a5:Address{Street:"Haraincha", City:"Morang", State:"Province 1", Zip_Code:56611, Phone:9834852123})
+Create(a8:Address{Street:"Dillibazar", City:"Kathmandu", State:"Bagmati Province", Zip_Code:44605, Phone:9800345890})
+Create(a10:Address{Street:"Dillibazar", City:"Kathmandu", State:"Bagmati Province", Zip_Code:44605, Phone:9800345890})
+Create(a11:Address{Street:"Kalimati", City:"Kathmandu", State:"Bagmati Province", Zip_Code:44614, Phone:9852147533})
+
+//Creating relationships between users and sellers, buyers
+Create(u1)-[:Business]->(s1)
+Create(u2)-[:Business]->(s2)
+Create(u3)-[:Business]->(b1)
+Create(u4)-[:Business]->(b2)
+
+//Creating relationships between sellers and products
+Create(s1)-[:Sells]->(p1)
+Create(s1)-[:Sells]->(p2)
+Create(s1)-[:Sells]->(p3)
+Create(s1)-[:Sells]->(p4)
+Create(s1)-[:Sells]->(p5)
+Create(s1)-[:Sells]->(p6)
+Create(s2)-[:Sells]->(p7)
+Create(s2)-[:Sells]->(p8)
+Create(s2)-[:Sells]->(p9)
+Create(s2)-[:Sells]->(p10)
+Create(s2)-[:Sells]->(p11)
+Create(s2)-[:Sells]->(p12)
+
+//Creating relationship between buyer and order, order and product, order and payment, order and address for buyer b1
+Create(b1)-[:Ordered]->(o1)
+Create(o1)-[:Ordered_Product]->(p1)
+Create(o1)-[:Pay]->(pm1)
+Create(o1)-[:Delivery]->(a1)
+Create(b1)-[:Ordered]->(o2)
+Create(o2)-[:Ordered_Product]->(p2)
+Create(o2)-[:Pay]->(pm2)
+Create(o2)-[:Delivery]->(a2)
+Create(b1)-[:Ordered]->(o3)
+Create(o3)-[:Ordered_Product]->(p3)
+Create(o3)-[:Pay]->(pm3)
+Create(o3)-[:Delivery]->(a3)
+Create(b1)-[:Ordered]->(o5)
+Create(o5)-[:Ordered_Product]->(p5)
+Create(o5)-[:Pay]->(pm5)
+Create(o5)-[:Delivery]->(a5)
+
+//Creating relationship between buyer and order, order and product, order and payment, order and address for buyer b2
+Create(b2)-[:Ordered]->(o8)
+Create(o8)-[:Ordered_Product]->(p8)
+Create(o8)-[:Pay]->(pm8)
+Create(o8)-[:Delivery]->(a8)
+Create(b2)-[:Ordered]->(o10)
+Create(o10)-[:Ordered_Product]->(p10)
+Create(o10)-[:Pay]->(pm10)
+Create(o10)-[:Delivery]->(a10)
+Create(b2)-[:Ordered]->(o11)
+Create(o11)-[:Ordered_Product]->(p11)
+Create(o11)-[:Pay]->(pm11)
+Create(o11)-[:Delivery]->(a11)
+
+//Creating relationship of review, wish list, shopping care, recommended between buyer and Product for buyer b1
+Create(b1)-[:Review{Rating:3.5, Comment:"Good quality of wheat. I like it."}]->(p1)
+Create(b1)-[:Review{Rating:4.5, Comment:"Not so bad, test good."}]->(p2)
+Create(b1)-[:Review{Rating:4, Comment:"ne of the best rice ever used."}]->(p3)
+Create(b1)-[:Review{Rating:4.5, Comment:"Very comfortable handle."}]->(p4)
+Create(b1)-[:Review{Rating:5, Comment:"Delicious Lentil."}]->(p5)
+Create(b1)-[:Review{Rating:5, Comment:"Not the best among others."}]->(p6)
+Create(b1)-[:Wish_List]->(p4)
+Create(b1)-[:Wish_List]->(p6)
+Create(b1)-[:Shopping_Cart{Quantity:"120 Kg"}]->(p4)
+Create(p6)-[:Recommended]->(b1)
+
+//Creating relationship of review, wish list, shopping care, recommended between buyer and Product for buyer b2
+Create(b2)-[:Review{Rating:4.5, Comment:"Long lasting tires."}]->(p7)
+Create(b2)-[:Review{Rating:4, Comment:"Best stylish helmet ever used."}]->(p8)
+Create(b2)-[:Review{Rating:4.5, Comment:"Lasted for really long time."}]->(p9)
+Create(b2)-[:Review{Rating:4, Comment:"Very good quality Kidney bean."}]->(p10)
+Create(b2)-[:Review{Rating:4, Comment:"The horn I was looking for a long time."}]->(p11)
+Create(b2)-[:Review{Rating:3.5, Comment:"Gives great Looking of background."}]->(p12)
+Create(b2)-[:Wish_List]->(p7)
+Create(b2)-[:Wish_List]->(p12)
+Create(b2)-[:Shopping_Cart{Quantity:"55"}]->(p9)
+Create(p7)-[:Recommended]->(b2)

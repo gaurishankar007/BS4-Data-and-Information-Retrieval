@@ -1,3 +1,0 @@
-Match(m:Matches)-[t1:Team1]->(t:Team)
-Where m.Season="2019"
-Return t

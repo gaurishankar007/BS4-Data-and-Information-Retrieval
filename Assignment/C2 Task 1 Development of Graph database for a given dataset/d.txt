@@ -1,8 +1,0 @@
-Match(m:Matches)
-Where m.Winner="Chennai Super Kings"
-With count(m) as W
-
-Match(m:Matches)-[tm]->(t:Team)
-Where m.Winner<>"Chennai Super Kings" and t.Name="Chennai Super Kings"
-With W, count(m) as L
-Return W as `Chennai Super Kings Total Wins`, L as `Chennai Super Kings Total Losses`

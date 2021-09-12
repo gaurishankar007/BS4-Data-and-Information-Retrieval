@@ -1,0 +1,6 @@
+1.Tableau Server [13 days trai: {Starting from 04-09-2021 to 17-09-2021}]
+https://prod-apsoutheast-a.online.tableau.com/#/site/tableaudata/workbooks/64946?:origin=card_share_link
+
+2. Tableau Public
+https://public.tableau.com/app/profile/gauri.shankar.sharma/viz/Learning_16307327161640/Dashboard1
+https://public.tableau.com/app/profile/gauri.shankar.sharma/viz/Learning_16307327161640/Dashboard1?publish=yes
