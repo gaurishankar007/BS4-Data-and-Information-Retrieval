@@ -1,0 +1,59 @@
+//Products ordered by a customer
+db.Customer.aggregate([
+    {$lookup:{
+                from: "Order",
+                localField:"_id", 
+                foreignField:"Customer_ID", 
+                as: "Ordered_Product"
+             }
+    },
+    {$match: {Name: "Samit Raj Mahat"}}
+])
+
+
+//Product added by a business
+db.Company.aggregate([
+    {$lookup:{
+                from: "Product",
+                localField:"_id", 
+                foreignField:"Company_ID", 
+                as: "Product"
+             }
+    },
+    {$match: {Name: "Bhandari Hardware"}}
+])
+
+//The customer which has ordered highest number of product
+db.Order.aggregate([
+    {$group: {
+            _id: "$Customer_ID", 
+            Order_No: {$sum: 1}
+            }
+    },
+    { "$sort": { Order_No: -1 } },
+    { "$limit": 1 } 
+])
+
+//The product which has highest number of order
+db.Order.aggregate([
+    {$group: {
+            _id: "$Product_ID", 
+            Order_No: {$sum: 1},
+            }
+    },
+    { "$sort": { Order_No: -1 } },
+    { "$limit": 1 } 
+])
+
+//Total number of customer and business in the B2B portal
+db.Customer.count({})
+db.Company.count({})
+
+//The Company with the number of products 
+db.Product.aggregate([
+    {$group: {
+            _id: "$Company_ID", 
+            Order_No: {$sum: 1},
+            }
+    }
+])
